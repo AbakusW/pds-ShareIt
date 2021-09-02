@@ -1,4 +1,18 @@
-# ShareIt! - Client
+# ShareIt! - Shared Editor
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#theidea">The Idea</a></li>
+    <li><a href="#mainfeatures">Main Features</a></li>
+    <li><ol>
+    <li><a href="#theidea">The Idea</a></li>
+    <li><a href="#mainfeatures">Main Features</a></li>
+    <li><a href="#installation">Installation</a></li>
+  </ol></li>
+    <li><a href="#installation">Installation</a></li>
+  </ol>
+</details>
 
 ShareIt! è nato come progetto universitario e questa repository contiene il Client del progetto
 
