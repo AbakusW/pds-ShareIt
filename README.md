@@ -1,6 +1,6 @@
 # ShareIt! - Shared Editor
 
-###### Questa repository contiene il progetto universitario svolto per il corso di _Programmazione di Sistema_ presso il Politecnico di Torino.
+###### This repository contains the university project carried out for the _System and Device Programming_ course at the _Politecnico of Turin_.
 -------------------------
 
 
@@ -17,65 +17,68 @@
   
 ## About ShareIt!
 
-La disponibilità di connessioni a larga banda e l’esigenza di lavorare in gruppo senza
-richiedere necessariamente la compresenza degli attori nello stesso spazio fisico, spinge verso
-la realizzazione di sistemi di supporto al lavoro cooperativo sempre più efficaci. Ad esempio,
-Google mette a disposizione la suite Docs, mediante la quale è possibile editare, in modo
-cooperativo e distribuito, documenti di varia natura ed in
-grado di scalare su numeri anche grandi di utenti contemporanei: tale soluzione è basata su
-un insieme di server centralizzati che gestiscono il traffico da e verso i singoli client e mettono
-in atto la logica necessaria a garantire la correttezza delle operazioni concorrenti.
+The availability of broadband connections and the need to work in a team without
+necessarily requiring the co-presence of the actors in the same physical space pushes towards
+the creation of increasingly effective support systems for cooperative work. Eg,
+Google provides the Docs suite, through which it is possible to edit, so
+cooperative and distributed, documents of various kinds and in
+able to scale even large numbers of contemporary users: this solution is based on
+a set of centralized servers that manage traffic to and from individual clients and put
+the logic necessary to guarantee the correctness of the concurrent operations is in place.
 
-_ShareIt!_ è un sistema di editing testuale cooperativo che consente a uno o più utenti di modificare il contenuto di un documento in contemporanea, garantendo che operazioni di inserimento o modifica diverse, svolte dagli utenti allo stesso tempo, producano gli stessi effetti, indipendentemente dall’ordine con cui sono eseguite sui diversi sistemi in uso (**commutatività**) e che cancellazioni ripetute portino allo stesso risultato (**idempotenza**).
+_ShareIt! _ Is a cooperative text editing system that allows one or more users to edit the content of a document at the same time, ensuring that different insertion or modification operations, performed by users at the same time, produce the same effects, regardless of the 'order in which they are performed on the different systems in use (** commutativity **) and that repeated cancellations lead to the same result (** idempotence **).
   
 ## Requirements
 
-1. Architettura. Il sistema è composto da due moduli indipendenti, il client ed il server.
+1. The system consists of **two independent modules**, the client and the server.
 
-2. Il server è costituito da un processo costantemente attivo, in grado di accettare,
-attraverso la rete, connessioni provenienti dai client. Il server, al suo interno, mantiene
-un insieme di documenti che possono essere editati, in modo collaborativo dai client.
-Tali documenti sono archiviati sul file system del server, così da non perderne il
-contenuto in caso di accidentale interruzione del processo. Le operazioni di salvataggio
-sono eseguite automaticamente e non richiedono nessuna richiesta esplicita da parte
-dei client.
+2. The **server** consists of a constantly active process, capable of accepting,
+through the network, connections from clients. The server, on the inside, keeps
+a set of documents that can be edited collaboratively by clients.
+These documents are stored on the server's file system, so as not to lose their
+content in case of accidental interruption of the process. Rescue operations
+they are performed automatically and do not require any explicit request from the part
+of clients.
 
-3. I client sono processi discontinui (possono essere avviati e terminati in modo
-indipendente, secondo la volontà dell’utente), eseguiti all’interno di elaboratori
-connessi in rete con il server. I client offrono un’interfaccia grafica mediante la quale
-un utente può richiedere al server di editare uno dei documenti attivi o chiedere di
-crearne uno nuovo, cui assegna un nome univoco. Quando il documento richiesto viene
-aperto, il client offre una tipica interfaccia da editor che permette di modificare il
-documento. Se due o più client modificano contemporaneamente il documento, il
-server garantisce che le operazioni effettuate generino, in ciascun client una
-rappresentazione coerente. I singoli client mostrano il numero e l’identità degli utenti
-che stanno modificando il documento corrente ed evidenziano la posizione del cursore
-dei diversi utenti all’interno del documento. Il client può evidenziare il testo introdotto
-dai diversi utenti utilizzando colori differenti.
+3. The **clients** are discontinuous processes (they can be started and ended in
+independent, according to the will of the user), performed within computers
+networked with the server. The clients offer a graphical interface through which
+a user can ask the server to edit one of the active documents or ask to
+create a new one, assign it a unique name. When the required document comes
+open, the client offers a typical editor interface that allows you to edit the
+document. If two or more clients edit the document at the same time, the
+server ensures that the operations performed generate, in each client, a
+consistent representation. Individual clients show the number and identity of users
+that are editing the current document and highlight the cursor position
+of the different users within the document. The client can highlight the entered text
+by different users using different colors.
 
-4. Gestione dell’identità. All’atto dell’avvio di un client, l’utente deve identificarsi presso il
-server utilizzando opportune credenziali (username, password). Per ogni utente, il
-server mantiene un profilo (nickname, icona, …) che può essere modificato dall’utente
-attraverso il proprio client.
+4. When starting a client, the user must **authenticate** to the
+server using appropriate credentials (username, password). For each user, the
+server maintains a profile (nickname, icon, ...) that can be changed by the user
+through your client.
 
 
 ## Features
   
-- **Pubblicazione di un documento**:
-Il client può produrre una versione PDF del documento corrente e salvarla nel proprio file
+- **Export to PDF**:
+The client can produce a PDF version of the current document and save it in its own file
 system.
 
-- **Arricchimento delle azioni**:
-L’editor permette di copiare e incollare contenuti testuali presenti all’interno dell’elaboratore
-del client. Le operazioni di modifica del testo possono essere attivate tramite shortcut da
-tastiera (es.: Ctrl-C/Ctrl-V) o da opportuni menu grafici.
+- **Cut|Copy|Paste keyboard shortcuts**:
+The editor provides cut-copy-paste operations which are made available both via keyboard shortcuts and
+graphical interface.
 
 - **Invito a collaborare**:
-Un client può inviare ai propri conoscenti, attraverso il canale che ritiene opportuno (e-mail,
-chat, …), una URI riferita al documento corrente. Copiando e incollando tale URI nel proprio
-client, il destinatario dell’invito può accedere al documento e partecipare alla sua modifica.
+A client can send _out-of-band_ (E.g., e-mail,
+chat), a unique URI of a document. By copying and pasting that URI into their own
+client, the recipients of the invitation link can access and edit the document.
+
 
 ## The Team
 
-
+- [@AbakusW](github.com/AbakusW): client/server side [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) algorithm implementation
+- [@cleidetomaselli](github.com/cleidetomaselli): UI, db
+- [@EnnioRiccobene](github.com/EnnioRiccobene): application protocol
+- [@gmberton](github.com/gmberton): client/server logic
 
