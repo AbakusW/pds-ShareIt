@@ -77,8 +77,8 @@ client, the recipients of the invitation link can access and edit the document.
 
 ## The Team
 
-- [@AbakusW](github.com/AbakusW): client/server side [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) algorithm implementation
-- [@cleidetomaselli](github.com/cleidetomaselli): UI, db
-- [@EnnioRiccobene](github.com/EnnioRiccobene): application protocol
-- [@gmberton](github.com/gmberton): client/server logic
+- [@AbakusW](https://github.com/AbakusW): client/server side [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) algorithm implementation
+- [@cleidetomaselli](https://github.com/cleidetomaselli): UI, db
+- [@EnnioRiccobene](https://github.com/EnnioRiccobene): application protocol
+- [@gmberton](https://github.com/gmberton): client/server logic
 
